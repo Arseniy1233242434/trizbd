@@ -1,0 +1,38 @@
+﻿<Page x:Class="Pharmacy.Pages.LogInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LogInPage">
+
+    <Grid>
+
+        <StackPanel Background="#355270">
+            <Label FontSize="16">Страница входа</Label>
+
+            <StackPanel>
+                <Label>Логин</Label>
+                <TextBox x:Name="login">
+                    <Binding Path="s"  >
+                        <Binding.ValidationRules>
+
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label>Пароль</Label>
+                <PasswordBox x:Name="password">
+                    
+                </PasswordBox>
+                
+                
+            </StackPanel>
+            <StackPanel>
+                <Button Click="Button_Click">Войти</Button>
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

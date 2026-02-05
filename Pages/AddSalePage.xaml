@@ -1,0 +1,91 @@
+﻿<Page x:Class="Pharmacy.Pages.AddSalePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddSalePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <StackPanel>
+
+
+                <Label>Поставка</Label>
+                <ComboBox 
+                           
+SelectedItem="{Binding _group.Arrival}" ItemsSource="{Binding service3.Users}">
+                    <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Препарат: " />
+                                <TextBlock Text="{Binding Medicine.Name}" />
+                                <TextBlock Text="  Кол-во: " />
+                                <TextBlock Text="{Binding OrderNumber}" />
+                                <TextBlock Text="  Дата:" />
+                                <TextBlock Text="{Binding Date}" />
+                                <TextBlock Text="  Поставщик: " />
+                                <TextBlock Text="{Binding Supplier.Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+</ComboBox.ItemTemplate>
+
+                </ComboBox>
+                <Label></Label>
+                <Label>Продавец</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Seller}" ItemsSource="{Binding service5.Users}"/>
+
+                <Label>Кол-во</Label>
+                <TextBox x:Name="t">
+                    <Binding Path="_group.Count"  UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label>Дата</Label>
+                <DatePicker x:Name="t11">
+                    <DatePicker.SelectedDate>
+                        <Binding Path="_group.Date">
+                            <Binding.ValidationRules>
+
+                            </Binding.ValidationRules>
+                        </Binding>
+
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+                <Label>Покупатель</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Buyer}" ItemsSource="{Binding service4.Users}"/>
+
+                <Label></Label>
+
+
+                <Label>Цена</Label>
+                <TextBox x:Name="tjh">
+                    <Binding Path="_group.Price"  UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <CheckBox IsChecked="{Binding _group.Payment}">Оплата по карте</CheckBox>
+                <Label></Label>
+            </StackPanel>
+            <StackPanel>
+                <Button Click="Button_Click">Сохранить</Button>
+                <Button Click="Button_Click_1">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,93 @@
+﻿<Page x:Class="Pharmacy.Pages.AddMedicinePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddMedicinePage"
+      >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <StackPanel>
+
+                <Label>Название</Label>
+                <TextBox x:Name="t">
+                    <Binding Path="_group.Name"  UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                          
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label>Тип</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Type}" ItemsSource="{Binding service1.Users}"/>
+                    <Label></Label>
+                <Label>Категория</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Categoty}" ItemsSource="{Binding service2.Users}"/>
+                <Label>Производитель</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Manufacturer}" ItemsSource="{Binding service3.Users}"/>
+                <Label>Условия хранения</Label>
+                <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Condition}" ItemsSource="{Binding service5.Users}"/>
+                <Label>Срок хранения(мес)</Label>
+                <TextBox x:Name="tttt" >
+                    <Binding Path="_group.ExpirationPeriod"  >
+                        <Binding.ValidationRules>
+                            <local:IsStockCorrect></local:IsStockCorrect>
+                        </Binding.ValidationRules>
+                    </Binding>
+
+                </TextBox>
+                <Label></Label>
+                <CheckBox IsChecked="{Binding _group.Prescription}">Рецепт</CheckBox>
+                
+                <StackPanel Orientation="Horizontal">
+                    <Label>Кол-во в упаковке:</Label>
+                    <TextBox x:Name="tt" Width="300">
+                        <Binding Path="_group.Count"  >
+                            <Binding.ValidationRules>
+                                <local:IsStockCorrect></local:IsStockCorrect>
+                            </Binding.ValidationRules>
+                        </Binding>
+                        
+                    </TextBox>
+                    <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Unit}" ItemsSource="{Binding service4.Users}" Width="400"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Дозировка:</Label>
+                    <TextBox x:Name="tt1" Width="300" Margin="41,0,0,0">
+                        <Binding Path="_group.Dosage"  >
+                            <Binding.ValidationRules>
+                                <local:IsPriceCorrect></local:IsPriceCorrect>
+                            </Binding.ValidationRules>
+                        </Binding>
+
+                    </TextBox>
+                    <ComboBox 
+                          DisplayMemberPath="Name" 
+SelectedItem="{Binding _group.Unitin}" ItemsSource="{Binding service4.Users}" Width="400"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Button Click="Button_Click">Сохранить</Button>
+                <Button Click="Button_Click_1">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

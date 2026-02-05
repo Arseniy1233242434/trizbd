@@ -1,0 +1,67 @@
+﻿<Page x:Class="Pharmacy.Pages.SellerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SellerPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Button Margin="7" Height="25" Click="Button_Click">
+                Добавить
+            </Button>
+            <Button Margin="7" Height="25" Click="Button_Click_1">
+                Удалить
+            </Button>
+
+        </StackPanel>
+        <ListView 
+                  MouseDoubleClick="ListView_MouseDoubleClick_1"
+ItemsSource="{Binding service.Users}"
+
+SelectedItem="{Binding current}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+
+
+                        <TextBlock>
+<Run Text="ФИО: "/>
+<Run Text="{Binding Name}"/>
+
+                        </TextBlock>
+                        <TextBlock>
+<Run Text="Активен ли: "/>
+<Run Text="{Binding IsActive}"/>
+
+                        </TextBlock>
+                        <TextBlock>
+<Run Text="Права администратора: "/>
+<Run Text="{Binding IsAdmin}"/>
+
+                        </TextBlock>
+                        <TextBlock>
+<Run Text="Логин: "/>
+<Run Text="{Binding Login}"/>
+
+                        </TextBlock>
+                        <TextBlock>
+<Run Text="Пароль: "/>
+<Run Text="{Binding Password}"/>
+
+                        </TextBlock>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
