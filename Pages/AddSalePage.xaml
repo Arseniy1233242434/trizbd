@@ -54,7 +54,7 @@ SelectedItem="{Binding _group.Seller}" ItemsSource="{Binding service5.Users}"/>
                 <Label>Дата</Label>
                 <DatePicker x:Name="t11">
                     <DatePicker.SelectedDate>
-                        <Binding Path="_group.Date">
+                        <Binding Path="_group.Date" >
                             <Binding.ValidationRules>
 
                             </Binding.ValidationRules>

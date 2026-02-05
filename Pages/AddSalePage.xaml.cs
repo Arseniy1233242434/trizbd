@@ -47,6 +47,7 @@ namespace Pharmacy.Pages
                 return;
             }
             _group = new();
+           _group.Date = DateTime.Now;
             DataContext = this;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
